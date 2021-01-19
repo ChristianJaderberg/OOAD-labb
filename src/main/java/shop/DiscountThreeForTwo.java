@@ -12,7 +12,6 @@ public class DiscountThreeForTwo implements DiscountStrategy {
         for (ShoppingCartItem item:items) {
             if (item.quantity() == 3) {
                 discountAmount = discountAmount.add(item.itemCost());
-                System.out.println("3 for 2 discount applied to: " + item.product().name());
             }
         }
 

@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 public class ShoppingCart {
 
     private final Set<ShoppingCartItem> items = new HashSet<>();
+    private DiscountHandler discountHandler = new DiscountHandler();
 
     public void addCartItem(ShoppingCartItem item){
         items.add(item);
@@ -30,8 +31,7 @@ public class ShoppingCart {
     }
 
     public BigDecimal calculateDiscount() {
-        // send calculateprice to discount method and return total discount amount
-        return null;
+        return discountHandler.calculateDiscount(this);
     }
 
     public BigDecimal calculatePriceWithDiscount() {
