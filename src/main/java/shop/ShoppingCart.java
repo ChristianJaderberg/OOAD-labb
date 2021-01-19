@@ -29,6 +29,15 @@ public class ShoppingCart {
         return sum;
     }
 
+    public BigDecimal calculateDiscount() {
+        // send calculateprice to discount method and return total discount amount
+        return null;
+    }
+
+    public BigDecimal calculatePriceWithDiscount() {
+        return this.calculatePrice().subtract(calculateDiscount());
+    }
+
     public void undo(){
         //Undo the latest change to the ShoppingCart
     }
