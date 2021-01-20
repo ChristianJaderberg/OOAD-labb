@@ -11,17 +11,13 @@ public class DiscountCheapestForFree implements DiscountStrategy {
         ShoppingCartItem[] items = shoppingCart.stream().toArray(ShoppingCartItem[]::new);
 
         if (items.length >= qualifyingAmount) {
-            ShoppingCartItem temp;
-            for(int i=0; i < items.length; i++){
-                for(int j=1; j < (items.length-i); j++){
-                    if(items[j-1].itemCost().doubleValue() > items[j].itemCost().doubleValue()){
-                        temp = items[j-1];
-                        items[j-1] = items[j];
-                        items[j] = temp;
-                    }
+            BigDecimal min = items[0].itemCost();
+            for (ShoppingCartItem item:items) {
+                if (item.itemCost().doubleValue() < min.doubleValue()) {
+                    min = item.itemCost();
                 }
             }
-            discountAmount = items[0].itemCost();
+            discountAmount = min;
         }
 
         return discountAmount;
