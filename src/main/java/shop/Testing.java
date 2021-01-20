@@ -45,6 +45,25 @@ public class Testing {
         System.out.println("TOTAL: " + shoppingCart3.calculatePrice());
         System.out.println("DISCOUNT: " + shoppingCart3.calculateDiscount());
         System.out.println("TOTAL WITH DISCOUNT: " + shoppingCart3.calculatePriceWithDiscount());
+
+
+        System.out.println("------------------------------------------");
+        System.out.println("REDO/UNDO-TESTING:");
+
+        ShoppingCart shoppingCart4 = new ShoppingCart();
+        shoppingCart4.addCartItem(new ShoppingCartItem(new Product("Milk"), 5.99, 2));
+        shoppingCart4.addCartItem(new ShoppingCartItem(new Product("Bread"), 7.99, 1));
+        shoppingCart4.addCartItem(new ShoppingCartItem(new Product("Soda"), 9.5, 1));
+        printCartState(shoppingCart4);
+        shoppingCart4.undo();
+        printCartState(shoppingCart4);
+        shoppingCart4.redo();
+        printCartState(shoppingCart4);
+    }
+
+    public static void printCartState(ShoppingCart shoppingCart) {
+        System.out.println("CURRENT CART STATE:");
+        System.out.println(shoppingCart.receipt());
     }
 
 }

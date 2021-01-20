@@ -10,11 +10,16 @@ import java.util.stream.Stream;
 
 public class ShoppingCart {
 
-    private final Set<ShoppingCartItem> items = new HashSet<>();
+    private Set<ShoppingCartItem> items = new HashSet<>();
     private DiscountHandler discountHandler = new DiscountHandler();
+    private CareTaker careTaker = new CareTaker();
 
     public void addCartItem(ShoppingCartItem item){
         items.add(item);
+        Set<ShoppingCartItem> items = new HashSet<>(this.items);
+        careTaker.addMemento(new Memento(items));
+        // System.out.println("MEMENTO: " + careTaker.getMemento(0).getState());
+        // System.out.println("THIS: " + this.items);
     }
 
     public Stream<ShoppingCartItem> stream(){
@@ -39,12 +44,11 @@ public class ShoppingCart {
     }
 
     public void undo(){
-        //Undo the latest change to the ShoppingCart
+        this.items = careTaker.undo().getState();
     }
 
-
     public void redo(){
-        //Redo the latest change to the ShoppingCart
+        this.items = careTaker.redo().getState();
     }
 
     public String receipt() {
