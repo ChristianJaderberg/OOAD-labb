@@ -16,10 +16,8 @@ public class ShoppingCart {
 
     public void addCartItem(ShoppingCartItem item){
         items.add(item);
-        Set<ShoppingCartItem> items = new HashSet<>(this.items);
-        careTaker.addMemento(new Memento(items));
-        // System.out.println("MEMENTO: " + careTaker.getMemento(0).getState());
-        // System.out.println("THIS: " + this.items);
+        Set<ShoppingCartItem> itemsToSave = new HashSet<>(this.items);
+        careTaker.addMemento(new Memento(itemsToSave));
     }
 
     public Stream<ShoppingCartItem> stream(){

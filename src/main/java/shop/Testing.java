@@ -59,6 +59,14 @@ public class Testing {
         printCartState(shoppingCart4);
         shoppingCart4.redo();
         printCartState(shoppingCart4);
+        shoppingCart4.undo();
+        shoppingCart4.undo();
+        shoppingCart4.undo();
+        shoppingCart4.undo();
+        shoppingCart4.redo();
+        shoppingCart4.redo();
+        shoppingCart4.redo();
+        shoppingCart4.redo();
     }
 
     public static void printCartState(ShoppingCart shoppingCart) {

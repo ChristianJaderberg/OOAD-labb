@@ -21,22 +21,22 @@ public class CareTaker {
     }
 
     public Memento undo() {
-        System.out.println("Undoing state...");
+        System.out.println("Undoing...");
         if (currentState <= 0) {
             currentState = 0;
-            System.out.println("No undone");
+            System.out.println("Could not undo, no more states to rewind to");
             return getMemento(0);
         }
 
         currentState--;
-        System.out.println("Is undone" + currentState);
         return getMemento(currentState);
     }
 
     public Memento redo() {
-        System.out.println("Redoing state...");
+        System.out.println("Redoing...");
         if (currentState >= history.size() -1) {
             currentState = history.size() - 1;
+            System.out.println("Could not redo, this is the latest state");
             return getMemento(currentState);
         }
 
