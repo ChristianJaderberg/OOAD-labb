@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 public class ShoppingCartItem {
     private final BigDecimal itemCost;
     private final Product product;
-    private final int quantity;
+    private int quantity;
 
     public ShoppingCartItem(@NotNull Product product, double itemCost, int quantity) {
         this.itemCost = BigDecimal.valueOf(itemCost);
@@ -17,6 +17,10 @@ public class ShoppingCartItem {
 
     public int quantity(){
         return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Product product() {

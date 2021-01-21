@@ -16,7 +16,10 @@ public class Testing {
         System.out.println("DISCOUNT: " + shoppingCart1.calculateDiscount());
         System.out.println("TOTAL WITH DISCOUNT: " + shoppingCart1.calculatePriceWithDiscount());
 
+        System.out.println();
         System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
+        System.out.println();
 
 
         System.out.println("Ten Percent Discount:");
@@ -29,7 +32,10 @@ public class Testing {
         System.out.println("DISCOUNT: " + shoppingCart2.calculateDiscount());
         System.out.println("TOTAL WITH DISCOUNT: " + shoppingCart2.calculatePriceWithDiscount());
 
+        System.out.println();
         System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
+        System.out.println();
 
 
         System.out.println("Cheapest for free Discount:");
@@ -47,7 +53,12 @@ public class Testing {
         System.out.println("TOTAL WITH DISCOUNT: " + shoppingCart3.calculatePriceWithDiscount());
 
 
+        System.out.println();
         System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
+        System.out.println();
+
+
         System.out.println("REDO/UNDO-TESTING:");
 
         ShoppingCart shoppingCart4 = new ShoppingCart();
@@ -62,11 +73,33 @@ public class Testing {
         shoppingCart4.undo();
         shoppingCart4.undo();
         shoppingCart4.undo();
-        shoppingCart4.undo();
         shoppingCart4.redo();
         shoppingCart4.redo();
         shoppingCart4.redo();
-        shoppingCart4.redo();
+
+
+        System.out.println();
+        System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
+        System.out.println();
+
+
+        System.out.println("REMOVE/CHANGE-TESTING:");
+
+        ShoppingCart shoppingCart5 = new ShoppingCart();
+        shoppingCart5.addCartItem(new ShoppingCartItem(new Product("Milk"), 9.99, 2));
+        shoppingCart5.addCartItem(new ShoppingCartItem(new Product("Bread"), 3.0, 3));
+        shoppingCart5.addCartItem(new ShoppingCartItem(new Product("Butter"), 44.95, 1));
+        shoppingCart5.addCartItem(new ShoppingCartItem(new Product("Marmalade"), 2.95, 3));
+
+        System.out.println(shoppingCart5.receipt());
+        shoppingCart5.removeCartItem("Bread");
+        System.out.println(shoppingCart5.receipt());
+        shoppingCart5.changeItemQuantity("Marmalade", 1);
+        System.out.println(shoppingCart5.receipt());
+        shoppingCart5.undo();
+        System.out.println(shoppingCart5.receipt());
+
     }
 
     public static void printCartState(ShoppingCart shoppingCart) {

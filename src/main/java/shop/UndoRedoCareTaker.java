@@ -2,25 +2,25 @@ package shop;
 
 import java.util.ArrayList;
 
-public class CareTaker {
+public class UndoRedoCareTaker {
 
-    private ArrayList<Memento> history;
+    private ArrayList<UndoRedoMemento> history;
     private int currentState = -1;
 
-    public CareTaker() {
+    public UndoRedoCareTaker() {
         this.history = new ArrayList<>();
     }
 
-    public void addMemento(Memento memento) {
+    public void addMemento(UndoRedoMemento memento) {
         this.history.add(memento);
         this.currentState = this.history.size() - 1;
     }
 
-    public Memento getMemento(int index) {
+    public UndoRedoMemento getMemento(int index) {
         return history.get(index);
     }
 
-    public Memento undo() {
+    public UndoRedoMemento undo() {
         System.out.println("Undoing...");
         if (currentState <= 0) {
             currentState = 0;
@@ -32,7 +32,7 @@ public class CareTaker {
         return getMemento(currentState);
     }
 
-    public Memento redo() {
+    public UndoRedoMemento redo() {
         System.out.println("Redoing...");
         if (currentState >= history.size() -1) {
             currentState = history.size() - 1;
